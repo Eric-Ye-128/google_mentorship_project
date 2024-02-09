@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bug7xf8ev8ndf"]
+
+[ext_resource type="PackedScene" uid="uid://cnymjs87j7yxj" path="res://sprite_2d.tscn" id="1_pvwxi"]
+[ext_resource type="Script" path="res://Bounds.gd" id="2_51sfl"]
+
+[node name="SampleCode" type="Node2D"]
+
+[node name="Sprite2D" parent="." instance=ExtResource("1_pvwxi")]
+position = Vector2(684, 387)
+
+[node name="Bounds" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_51sfl")
+
+[node name="UpperLeft" type="Marker2D" parent="Bounds"]
+unique_name_in_owner = true
+
+[node name="LowerRight" type="Marker2D" parent="Bounds"]
+unique_name_in_owner = true
+position = Vector2(1280, 720)
