@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqx8css4u1t34"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_xkm4u"]
+[ext_resource type="Texture2D" uid="uid://cu3cio41x831o" path="res://icon.svg" id="2_7dv7x"]
+[ext_resource type="Script" path="res://FollowCamera.gd" id="3_b1cn7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jai8"]
+size = Vector2(128, 128)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(168, 72)
+scale = Vector2(0.1, 0.1)
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_xkm4u")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7dv7x")
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 128)
+
+[node name="FollowCamera" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+script = ExtResource("3_b1cn7")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4jai8")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, -160)
+collision_mask = 3
+collide_with_areas = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
