@@ -33,7 +33,7 @@ func _process(delta):
 			target_pos = position + target_direction * 16
 			is_moving = true
 		if world.is_enterance(position, target_direction):
-			get_tree().change_scene_to_file("res://World2.tscn")
+			get_tree().change_scene_to_file("res://node_2d.tscn")
 	elif is_moving:
 		speed = MAX_SPEED
 		velocity = speed * target_direction * delta
@@ -45,4 +45,3 @@ func _process(delta):
 			is_moving = false
 		
 		move_and_collide(velocity)
-	
