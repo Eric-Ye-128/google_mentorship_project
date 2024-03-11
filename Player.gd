@@ -9,6 +9,7 @@ var target_direction: Vector2 = Vector2()
 var is_moving: bool = false
 var speed: int = 0
 var MAX_SPEED: int = 200
+var astar_grid: AStarGrid2D
 
 func _ready():
 	self.position = Vector2(40, 40)
