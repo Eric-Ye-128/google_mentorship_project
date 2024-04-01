@@ -5,7 +5,6 @@ var INT_MAX: int = 9_223_372_036_854_775_807
 
 func _ready():
 	Global.on_ground = get_layer_array(2)
-	Global.enterance = get_layer_array(3)
 
 func _process(delta):
 	pass
@@ -13,12 +12,10 @@ func _process(delta):
 func get_layer_array(layer: int):
 	var output: Array = self.get_used_cells(layer)
 	var other_cells: Array
-		
+	
 	for cell: Vector2i in output:
 		var points: PackedVector2Array = self.get_cell_tile_data(layer, cell).get_collision_polygon_points(0, 0)
 		points.sort()
-		print(points)
-		
 		var included_cells: Array = get_cell_inside_region(Array(points))
 		for cell_included: Vector2i in included_cells:
 			if cell_included != Vector2i(0, 0): 
@@ -68,8 +65,3 @@ func is_on_ground(pos: Vector2, direction: Vector2):
 	var target_pos = pos + direction * 16
 	var target_cell = Vector2i((target_pos - Vector2(8, 8)) / 16)
 	return target_cell in Global.on_ground
-
-func is_enterance(pos: Vector2, direction: Vector2):
-	var target_pos = pos + direction * 16
-	var target_cell = Vector2i((target_pos - Vector2(8, 8)) / 16)
-	return target_cell in Global.enterance
