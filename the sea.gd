@@ -4,8 +4,8 @@ var INT_MIN: int = -9_223_372_036_854_775_808
 var INT_MAX: int = 9_223_372_036_854_775_807
 
 func _ready():
-	Global.on_ground = get_layer_array(2)
-	Global.enterance = get_layer_array(3)
+	Global.on_ground = get_layer_array(1)
+	Global.enterance = get_layer_array(2)
 
 func _process(delta):
 	pass
