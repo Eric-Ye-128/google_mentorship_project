@@ -1,6 +1,6 @@
 extends Camera2D
 
-@export var tilemap: TileMap
+@onready var tilemap: TileMap = %World
 
 func _ready():
 	var mapRect = tilemap.get_used_rect()
