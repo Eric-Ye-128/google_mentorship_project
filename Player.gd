@@ -58,7 +58,13 @@ func _process(delta):
 			target_pos = position + target_direction * 16
 			is_moving = true
 		if world.is_enterance(position, target_direction):
-			get_tree().change_scene_to_file("res://Ocean.tscn")
+			print(get_tree().current_scene.name)
+			if (get_tree().current_scene.name == "Main"):
+				Global.main = true
+				get_tree().change_scene_to_file("res://loading.tscn")
+			elif (get_tree().current_scene.name == "Ocean"):
+				Global.ocean = true
+				get_tree().change_scene_to_file("res://loading.tscn") 
 	elif is_moving:
 		speed = MAX_SPEED
 		velocity = speed * target_direction * delta
@@ -73,4 +79,3 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	print("collided")
-
