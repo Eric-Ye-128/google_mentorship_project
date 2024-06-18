@@ -13,6 +13,8 @@ var MAX_SPEED: int = 200
 var astar_grid: AStarGrid2D
 var curr_path: Array[Vector2i]
 
+var win: bool
+
 func _ready():
 	self.position = Vector2(40, 40)
 	astar_grid = AStarGrid2D.new()
@@ -57,14 +59,24 @@ func _process(delta):
 		if not world.is_on_ground(position, target_direction) and not world.is_enterance(position, target_direction):
 			target_pos = position + target_direction * 16
 			is_moving = true
+		if (get_tree().current_scene.name == "Main"):
+			Global.current = "res://node_2d.tscn"
+			Global.change = "res://Ocean.tscn"
+		elif (get_tree().current_scene.name == "Ocean"):
+			Global.change = "res://node_2d.tscn"
+			Global.current = "res://Ocean.tscn"
 		if world.is_enterance(position, target_direction):
-			print(get_tree().current_scene.name)
-			if (get_tree().current_scene.name == "Main"):
-				Global.main = true
-				get_tree().change_scene_to_file("res://loading.tscn")
-			elif (get_tree().current_scene.name == "Ocean"):
-				Global.ocean = true
-				get_tree().change_scene_to_file("res://loading.tscn") 
+			get_tree().change_scene_to_file("res://loading.tscn")
+		print(self.position)
+		print($"../npc".position)
+		if self.position == $"../npc".position - Vector2(16, 0) || self.position == $"../npc".position + Vector2(16, 0) || self.position == $"../npc".position - Vector2(0, 16) || self.position == $"../npc".position + Vector2(0, 16):
+			print("combat")
+			Global.change = "res://combat.tscn"
+			get_tree().change_scene_to_file("res://loading.tscn")
+		if (win):
+			Global.change = Global.current
+			get_tree().change_scene_to_file("res://loading.tscn")
+			
 	elif is_moving:
 		speed = MAX_SPEED
 		velocity = speed * target_direction * delta
