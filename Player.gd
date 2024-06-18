@@ -13,8 +13,6 @@ var MAX_SPEED: int = 200
 var astar_grid: AStarGrid2D
 var curr_path: Array[Vector2i]
 
-var win: bool
-
 func _ready():
 	self.position = Vector2(40, 40)
 	astar_grid = AStarGrid2D.new()
@@ -73,10 +71,6 @@ func _process(delta):
 			print("combat")
 			Global.change = "res://combat.tscn"
 			get_tree().change_scene_to_file("res://loading.tscn")
-		if (win):
-			Global.change = Global.current
-			get_tree().change_scene_to_file("res://loading.tscn")
-			
 	elif is_moving:
 		speed = MAX_SPEED
 		velocity = speed * target_direction * delta
