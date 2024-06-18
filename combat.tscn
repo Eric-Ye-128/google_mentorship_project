@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://do3oya6flaxfd"]
 
 [ext_resource type="Script" path="res://Combat.gd" id="1_lptxq"]
-[ext_resource type="Resource" uid="uid://dsm4bdkummxwj" path="res://Goblin.tres" id="2_r3twd"]
+[ext_resource type="Resource" path="res://Goblin.tres" id="2_r3twd"]
 [ext_resource type="Texture2D" uid="uid://blfhedt8tbndl" path="res://Solaria Demo Update 01.png" id="2_y2hhi"]
 [ext_resource type="Texture2D" uid="uid://cu3cio41x831o" path="res://icon.svg" id="3_wr0f3"]
 

@@ -110,7 +110,6 @@ func enemy_turn():
 		display_text("Your party has died.")
 		await textbox_closed
 		await get_tree().create_timer(0.25).timeout
-		
 		Global.change = Global.current
 		get_tree().change_scene_to_file("res://loading.tscn")
 	

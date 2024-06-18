@@ -65,8 +65,6 @@ func _process(delta):
 			Global.current = "res://Ocean.tscn"
 		if world.is_enterance(position, target_direction):
 			get_tree().change_scene_to_file("res://loading.tscn")
-		print(self.position)
-		print($"../npc".position)
 		if self.position == $"../npc".position - Vector2(16, 0) || self.position == $"../npc".position + Vector2(16, 0) || self.position == $"../npc".position - Vector2(0, 16) || self.position == $"../npc".position + Vector2(0, 16):
 			print("combat")
 			Global.change = "res://combat.tscn"
