@@ -506,7 +506,7 @@ theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="PlayerContainer1"]
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "Player 1"
 horizontal_alignment = 1
@@ -540,7 +540,7 @@ theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="PlayerContainer2"]
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "Player 2"
 horizontal_alignment = 1
@@ -574,7 +574,7 @@ theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="PlayerContainer3"]
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "Player 3"
 horizontal_alignment = 1
@@ -608,7 +608,7 @@ theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="EnemyContainer"]
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "Goblin"
 horizontal_alignment = 1
@@ -746,3 +746,4 @@ libraries = {
 
 [connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="ActionsPanel/Actions/Defend" to="." method="_on_defend_pressed"]
+[connection signal="pressed" from="ActionsPanel/Actions/Special" to="." method="_on_special_pressed"]

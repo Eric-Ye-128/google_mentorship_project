@@ -69,7 +69,6 @@ func _process(delta):
 			print("combat")
 			Global.change = "res://combat.tscn"
 			get_tree().change_scene_to_file("res://loading.tscn")
-			
 	elif is_moving:
 		speed = MAX_SPEED
 		velocity = speed * target_direction * delta
